@@ -16,25 +16,19 @@ export default function ContactPage() {
         padding: "1.75rem 3rem",
       }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
-          <span style={{
-            fontFamily: "var(--font-outfit), sans-serif",
-            fontWeight: 800,
-            fontSize: "1.5rem",
-            letterSpacing: "-0.02em",
-            color: "#ffffff",
-            lineHeight: 1,
+          <div style={{
+            position: "relative",
+            width: "160px",
+            height: "48px",
+            filter: "brightness(0) invert(1)"
           }}>
-            JJ POOLS
-            <span style={{
-              fontWeight: 400,
-              fontSize: "0.55rem",
-              letterSpacing: "0.2em",
-              display: "block",
-              color: "#ffffff",
-              marginTop: "2px",
-              textTransform: "uppercase",
-            }}>AND SPA</span>
-          </span>
+            {/* Using an img tag since next/image needs import, and this is a simple static header */}
+            <img
+              src="/logo.png"
+              alt="JJ Pools and SPA Logo"
+              style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "left center" }}
+            />
+          </div>
         </a>
         <a href="/" style={{
           fontFamily: "var(--font-outfit), sans-serif",

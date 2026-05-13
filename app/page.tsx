@@ -112,27 +112,22 @@ function Navbar() {
       
       {/* Logo */}
       <a href="/" id="nav-logo" aria-label="JJ Pools and SPA — Home" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
-        <span style={{
-          fontFamily: "var(--font-outfit), sans-serif",
-          fontWeight: 800,
-          fontSize: "1.5rem",
-          letterSpacing: "-0.02em",
-          color: isScrolled ? "#0f172a" : "#ffffff",
-          lineHeight: 1,
-          transition: "color 0.3s"
+        <div style={{
+          position: "relative",
+          width: "160px",
+          height: "48px",
+          transition: "filter 0.3s ease",
+          filter: isScrolled ? "none" : "brightness(0) invert(1)"
         }}>
-          JJ POOLS
-          <span style={{
-            fontWeight: 400,
-            fontSize: "0.55rem",
-            letterSpacing: "0.2em",
-            display: "block",
-            color: isScrolled ? "#64748b" : "#ffffff",
-            marginTop: "2px",
-            textTransform: "uppercase",
-            transition: "color 0.3s"
-          }}>AND SPA</span>
-        </span>
+          <Image
+            src="/logo.png"
+            alt="JJ Pools and SPA Logo"
+            fill
+            sizes="160px"
+            style={{ objectFit: "contain", objectPosition: "left center" }}
+            priority
+          />
+        </div>
       </a>
 
       {/* Nav links — desktop only */}
@@ -319,16 +314,16 @@ export default function Hero() {
             background: `
               linear-gradient(
                 105deg,
-                rgba(2,10,24,0.88) 0%,
-                rgba(2,10,24,0.62) 45%,
-                rgba(2,10,24,0.25) 75%,
-                rgba(2,10,24,0.15) 100%
+                rgba(2,10,24,0.7) 0%,
+                rgba(2,10,24,0.4) 45%,
+                rgba(2,10,24,0.1) 75%,
+                rgba(2,10,24,0.0) 100%
               ),
               linear-gradient(
                 to top,
-                rgba(2,10,24,0.95) 0%,
-                rgba(2,10,24,0.2) 30%,
-                transparent 60%
+                rgba(2,10,24,0.75) 0%,
+                rgba(2,10,24,0.1) 20%,
+                transparent 40%
               )
             `,
           }} />
@@ -366,19 +361,18 @@ export default function Hero() {
           margin: "0 auto",
           display: "flex",
           flexDirection: "column",
+          justifyContent: "center",
           flex: 1,
+          paddingTop: "7rem", // To account for the navbar
+          paddingBottom: "4rem",
         }}>
           {/* ── Hero Content ── */}
           <div
             className="hero-content"
             style={{
-              flex: 1,
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
               padding: "0 4rem",
-              paddingTop: "9rem",
-              paddingBottom: "5rem",
               maxWidth: "860px",
             }}
           >
@@ -603,90 +597,7 @@ export default function Hero() {
           }} />
         </div>
 
-        {/* ── Stats row (bottom overlay) ── */}
-        <div
-          id="hero-stats"
-          className="animate-fade-up delay-1000"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            zIndex: 10,
-            display: "flex",
-            justifyContent: "flex-start",
-            gap: 0,
-            padding: "0 4rem 2rem",
-            pointerEvents: "none",
-          }}
-        >
-          {[
-            { value: "200+", label: "Pools Completed" },
-            { value: "15+", label: "Years Experience" },
-            { value: "100%", label: "Satisfaction Rate" },
-          ].map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`animate-fade-up delay-${(i + 8) * 100}`}
-              style={{
-                marginRight: "3rem",
-                borderLeft: i === 0 ? "none" : "1px solid rgba(255,255,255,0.10)",
-                paddingLeft: i === 0 ? 0 : "3rem",
-                pointerEvents: "auto",
-              }}
-            >
-              <div style={{
-                display: "flex",
-                alignItems: "baseline",
-                gap: "2px",
-              }}>
-                <span style={{
-                  fontFamily: "var(--font-outfit), sans-serif",
-                  fontWeight: 800,
-                  fontSize: "2rem",
-                  lineHeight: 1,
-                  background: "linear-gradient(135deg, #fff 0%, #2dd4bf 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}>{stat.value}</span>
-              </div>
-              <p style={{
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 300,
-                fontSize: "0.7rem",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.45)",
-                marginTop: "2px",
-              }}>{stat.label}</p>
-            </div>
-          ))}
 
-          {/* Star rating */}
-          <div
-            style={{
-              marginLeft: "auto",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-              paddingBottom: "0.25rem",
-              pointerEvents: "auto",
-            }}
-          >
-            <div style={{ display: "flex", gap: "3px", color: "#fbbf24" }}>
-              {Array.from({ length: 5 }).map((_, i) => <IconStar key={i} />)}
-            </div>
-            <span style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontWeight: 300,
-              fontSize: "0.65rem",
-              color: "rgba(255,255,255,0.4)",
-              letterSpacing: "0.05em",
-              marginTop: "4px",
-            }}>5-star rated on Google</span>
-          </div>
-        </div>
         </div>
       </main>
 
@@ -694,25 +605,13 @@ export default function Hero() {
       <section
         id="services"
         style={{
-          paddingTop: "8rem",
+          paddingTop: "6rem",
           paddingBottom: "8rem",
           backgroundColor: "#ffffff",
           zIndex: 20,
           position: "relative"
         }}
       >
-        {/* Blur Transition overlay at the top */}
-        <div style={{
-          position: "absolute",
-          top: "-120px",
-          left: 0,
-          right: 0,
-          height: "120px",
-          background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          pointerEvents: "none",
-        }} />
         <div style={{
           maxWidth: "1280px",
           margin: "0 auto",
@@ -1555,19 +1454,21 @@ export default function Hero() {
         }}>
           {/* Brand */}
           <div>
-            <h3 style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontWeight: 800,
-              fontSize: "2rem",
-              letterSpacing: "-0.02em",
+            <div style={{
+              position: "relative",
+              width: "160px",
+              height: "48px",
               marginBottom: "1.5rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.25rem"
+              filter: "brightness(0) invert(1)"
             }}>
-              JJ<span style={{ fontWeight: 400 }}>POOLS</span>
-              <span style={{ fontSize: "0.5rem", fontWeight: 400, marginTop: "0.5rem" }}>AND SPA</span>
-            </h3>
+              <Image
+                src="/logo.png"
+                alt="JJ Pools and SPA Logo"
+                fill
+                sizes="160px"
+                style={{ objectFit: "contain", objectPosition: "left center" }}
+              />
+            </div>
             <p style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 300,
