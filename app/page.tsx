@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import { useState, useEffect } from "react";
-import { HiOutlinePencilAlt, HiOutlineDocumentText, HiOutlineClipboardList, HiOutlineSparkles, HiOutlineOfficeBuilding, HiOutlineShieldCheck } from "react-icons/hi";
+import { HiOutlinePencilAlt, HiOutlineDocumentText, HiOutlineClipboardList, HiOutlineSparkles, HiOutlineOfficeBuilding, HiOutlineShieldCheck, HiMenu, HiX } from "react-icons/hi";
 import { FiTool, FiSettings } from "react-icons/fi";
 import { TbHeartHandshake, TbDiamond, TbMessageCircle, TbWallet, TbCompass, TbSparkles, TbUserCheck, TbSun, TbTopologyStar, TbAffiliate } from "react-icons/tb";
 
@@ -77,6 +77,7 @@ function IconDollar() {
 ───────────────────────────────────────────────────────── */
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const links = ["Home", "Services", "About", "Process", "Contact"];
 
   useEffect(() => {
@@ -132,14 +133,13 @@ function Navbar() {
       {/* Nav links — desktop only */}
       <ul
         role="list"
+        className="hidden md:flex"
         style={{
-          display: "flex",
           gap: "2.5rem",
           listStyle: "none",
           margin: 0,
           padding: 0,
         }}
-        className="hidden-mobile"
       >
         {links.map((link) => (
           <li key={link}>
@@ -161,10 +161,13 @@ function Navbar() {
         ))}
       </ul>
 
-      {/* CTA */}
-      <a
-        id="nav-cta"
-        href="/contact"
+      {/* Desktop CTA & Mobile Toggle wrapper */}
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        {/* Desktop CTA */}
+        <a
+          id="nav-cta"
+          href="/contact"
+          className="hidden md:inline-block"
         style={{
           fontFamily: "var(--font-outfit), sans-serif",
           fontWeight: 700,
@@ -190,6 +193,71 @@ function Navbar() {
       >
         Request Free Estimate
       </a>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+          style={{
+            background: "transparent",
+            border: "none",
+            color: isScrolled ? "#0f172a" : "#ffffff",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0.5rem"
+          }}
+        >
+          {isMobileMenuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-slate-100 py-4 px-6 flex flex-col gap-4"
+          style={{ animation: "fadeIn 0.2s ease-out" }}
+        >
+          {links.map((link) => (
+            <a
+              key={link}
+              href={link === "Contact" ? "/contact" : `#${link.toLowerCase()}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{
+                fontFamily: "var(--font-outfit), sans-serif",
+                fontWeight: 600,
+                fontSize: "1.1rem",
+                color: "#0f172a",
+                textDecoration: "none",
+                padding: "0.5rem 0",
+                borderBottom: "1px solid #f1f5f9"
+              }}
+            >
+              {link}
+            </a>
+          ))}
+          <a
+            href="/contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{
+              fontFamily: "var(--font-outfit), sans-serif",
+              fontWeight: 700,
+              fontSize: "1rem",
+              color: "#ffffff",
+              background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
+              padding: "0.875rem",
+              borderRadius: "8px",
+              textDecoration: "none",
+              textAlign: "center",
+              marginTop: "0.5rem"
+            }}
+          >
+            Request Free Estimate
+          </a>
+        </div>
+      )}
     </nav>
   );
 }
