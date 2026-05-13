@@ -1578,12 +1578,17 @@ export default function Hero() {
             fontSize: "0.8rem",
             color: "rgba(255,255,255,0.5)"
           }}>© 2026 JJ Pools & Spa. All rights reserved.</p>
-          <p style={{
+          <div style={{
+            display: "flex",
+            gap: "1.5rem",
             fontFamily: "var(--font-outfit), sans-serif",
             fontWeight: 300,
             fontSize: "0.8rem",
-            color: "rgba(255,255,255,0.5)"
-          }}>Licensed & Insured - Winter Garden, FL</p>
+          }}>
+            <a href="/privacypolicy" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.color = "#1cb5e0"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>Privacy Policy</a>
+            <a href="/termsofservice" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.color = "#1cb5e0"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>Terms of Service</a>
+            <span style={{ color: "rgba(255,255,255,0.5)" }}>Licensed & Insured - Winter Garden, FL</span>
+          </div>
         </div>
       </footer>
     </>
