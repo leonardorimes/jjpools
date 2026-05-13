@@ -146,7 +146,7 @@ function Navbar() {
           <li key={link}>
             <a
               id={`nav-link-${link.toLowerCase()}`}
-              href={`#${link.toLowerCase()}`}
+              href={link === "Contact" ? "/contact" : `#${link.toLowerCase()}`}
               className="nav-link"
               style={{
                 fontFamily: "var(--font-outfit), sans-serif",

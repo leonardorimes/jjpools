@@ -1,6 +1,6 @@
 export default function TermsOfServicePage() {
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#f8fafc", position: "relative" }}>
+    <main style={{ flex: 1, backgroundColor: "#f8fafc", position: "relative" }}>
       {/* Header */}
       <nav style={{
         backgroundColor: "#020a18",

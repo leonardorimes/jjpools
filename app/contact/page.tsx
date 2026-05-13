@@ -2,7 +2,7 @@ import Navbar from "../page" // We need to extract Navbar or recreate it. Wait, 
 
 export default function ContactPage() {
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#020a18", position: "relative" }}>
+    <main style={{ flex: 1, backgroundColor: "#020a18", position: "relative" }}>
       {/* Simple header just to allow navigation back */}
       <nav style={{
         position: "absolute",
