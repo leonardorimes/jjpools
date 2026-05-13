@@ -2,12 +2,11 @@ export default function PrivacyPolicyPage() {
   return (
     <main style={{ flex: 1, backgroundColor: "#f8fafc", position: "relative" }}>
       {/* Header */}
-      <nav style={{
+      <nav className="px-6 md:px-12 py-7" style={{
         backgroundColor: "#020a18",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "1.75rem 3rem",
       }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
           <div style={{
@@ -35,8 +34,7 @@ export default function PrivacyPolicyPage() {
       </nav>
 
       {/* Content Section */}
-      <section style={{
-        padding: "5rem 4rem 8rem",
+      <section className="px-6 md:px-16 pt-20 pb-32" style={{
         maxWidth: "860px",
         margin: "0 auto",
         color: "#0f172a",

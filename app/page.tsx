@@ -88,24 +88,22 @@ function Navbar() {
   }, []);
 
   return (
-    <nav
-      id="main-nav"
-      aria-label="Main navigation"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: isScrolled ? "1.25rem 3rem" : "1.75rem 3rem",
-        background: isScrolled ? "#ffffff" : "transparent",
-        boxShadow: isScrolled ? "0 4px 20px rgba(0,0,0,0.05)" : "none",
-        transition: "all 0.3s ease-in-out",
-      }}
-    >
+      <nav
+        id="main-nav"
+        aria-label="Main navigation"
+        className={`px-6 md:px-12 py-5 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          transition: "all 0.3s ease-in-out",
+        }}
+      >
       <style>{`
         .nav-link { color: ${isScrolled ? "#0f172a" : "#ffffff"}; transition: color 0.2s; }
         .nav-link:hover { color: #1cb5e0; }
@@ -369,11 +367,10 @@ export default function Hero() {
         }}>
           {/* ── Hero Content ── */}
           <div
-            className="hero-content"
+            className="hero-content px-6 md:px-16"
             style={{
               display: "flex",
               flexDirection: "column",
-              padding: "0 4rem",
               maxWidth: "860px",
             }}
           >
@@ -411,11 +408,10 @@ export default function Hero() {
           {/* Headline */}
           <h1
             id="hero-headline"
-            className="hero-headline animate-fade-up delay-200"
+            className="hero-headline animate-fade-up delay-200 text-5xl md:text-[4.25rem]"
             style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 800,
-              fontSize: "4.25rem",
               lineHeight: 1.06,
               letterSpacing: "-0.03em",
               color: "#ffffff",
@@ -550,13 +546,7 @@ export default function Hero() {
           {/* Trust Badges */}
           <div
             id="hero-trust-badges"
-            className="hero-badges animate-fade-up delay-700"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.75rem",
-              marginTop: "3rem",
-            }}
+            className="hero-badges animate-fade-up delay-700 flex flex-wrap gap-3 mt-12"
           >
             <TrustBadge id="badge-turnkey" icon={<IconHome />} text="Turnkey Projects" delay="delay-700" />
             <TrustBadge id="badge-financing" icon={<IconDollar />} text="Financing" subtext="Available" delay="delay-800" />
@@ -568,7 +558,7 @@ export default function Hero() {
         {/* ── Scroll hint ── */}
         <div
           id="hero-scroll-hint"
-          className="hero-scroll-hint animate-fade-in delay-1200"
+          className="hero-scroll-hint hidden md:flex flex-col items-center gap-2 animate-fade-in delay-1200"
           style={{
             position: "absolute",
             bottom: "2rem",
@@ -613,10 +603,9 @@ export default function Hero() {
           position: "relative"
         }}
       >
-        <div style={{
+        <div className="px-6 md:px-16" style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          padding: "0 4rem",
         }}>
           <p style={{
             fontFamily: "var(--font-outfit), sans-serif",
@@ -628,10 +617,9 @@ export default function Hero() {
             marginBottom: "1.5rem"
           }}>What We Do</p>
           
-          <h2 className="animate-fade-up" style={{
+          <h2 className="animate-fade-up text-4xl md:text-[3.5rem]" style={{
             fontFamily: "var(--font-outfit), sans-serif",
             fontWeight: 800,
-            fontSize: "3.5rem",
             marginBottom: "1.25rem",
             letterSpacing: "-0.02em",
             lineHeight: 1.1,

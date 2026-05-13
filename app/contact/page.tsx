@@ -4,7 +4,7 @@ export default function ContactPage() {
   return (
     <main style={{ flex: 1, backgroundColor: "#020a18", position: "relative" }}>
       {/* Simple header just to allow navigation back */}
-      <nav style={{
+      <nav className="px-6 md:px-12 py-7" style={{
         position: "absolute",
         top: 0,
         left: 0,
@@ -13,7 +13,6 @@ export default function ContactPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "1.75rem 3rem",
       }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
           <div style={{
@@ -42,23 +41,21 @@ export default function ContactPage() {
       </nav>
 
       {/* ── Contact Section (Copied from Home) ── */}
-      <section style={{
-        padding: "10rem 4rem 8rem",
+      <section className="px-6 md:px-16 pt-40 pb-32" style={{
         backgroundColor: "#020a18",
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
       }}>
-        <div style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "4rem",
-          alignItems: "start"
-        }}>
+        <div className="flex flex-col md:grid md:grid-cols-2"
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            gap: "4rem",
+            alignItems: "start"
+          }}>
           {/* Text Content */}
-          <div style={{ paddingRight: "2rem" }}>
+          <div className="md:pr-8">
             <p style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 600,
