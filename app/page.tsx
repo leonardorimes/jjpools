@@ -170,7 +170,7 @@ function Navbar() {
       {/* CTA */}
       <a
         id="nav-cta"
-        href="#contact"
+        href="/contact"
         style={{
           fontFamily: "var(--font-outfit), sans-serif",
           fontWeight: 700,
@@ -487,7 +487,7 @@ export default function Hero() {
             {/* Primary CTA */}
             <a
               id="hero-cta-estimate"
-              href="#contact"
+              href="/contact"
               className="animate-pulse-glow"
               style={{
                 display: "inline-flex",
@@ -1474,112 +1474,67 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* ── Estimate / Lead Form Section ── */}
-      <section id="estimate" style={{
+      {/* ── Estimate / CTA Banner ── */}
+      <section style={{
         padding: "8rem 4rem",
         background: "linear-gradient(90deg, #0f385c 0%, #15b0a7 100%)",
-        color: "#ffffff"
+        color: "#ffffff",
+        textAlign: "center"
       }}>
-        <div style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "4rem",
-          alignItems: "center"
-        }}>
-          {/* Text Content */}
-          <div style={{ paddingRight: "2rem" }}>
-            <p style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontWeight: 600,
-              fontSize: "0.75rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#38bdf8",
-              marginBottom: "1.5rem"
-            }}>Get Your Free Estimate</p>
-            <h2 style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontWeight: 800,
-              fontSize: "3.5rem",
-              color: "#ffffff",
-              marginBottom: "1.5rem",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em"
-            }}>
-              Ready to Build Your<br />Dream Backyard?
-            </h2>
-            <p style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontWeight: 400,
-              fontSize: "1.125rem",
-              color: "rgba(255,255,255,0.85)",
-              marginBottom: "3rem",
-              lineHeight: 1.6
-            }}>
-              Request your free consultation today. A JJ specialist will reach out within one business day with next steps.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              {[
-                "No obligation, no pressure",
-                "Personalized design guidance",
-                "Financing & timeline overview"
-              ].map((text, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                  <div style={{
-                    width: "24px",
-                    height: "24px",
-                    borderRadius: "50%",
-                    border: "1px solid #38bdf8",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#38bdf8"
-                  }}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span style={{
-                    fontFamily: "var(--font-outfit), sans-serif",
-                    fontWeight: 300,
-                    fontSize: "1rem",
-                    color: "rgba(255,255,255,0.9)"
-                  }}>{text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Form Embed */}
-          <div style={{
-            backgroundColor: "#ffffff",
-            borderRadius: "20px",
-            boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
-            overflow: "hidden",
-            minHeight: "780px",
-            width: "100%",
-            position: "relative"
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <p style={{
+            fontFamily: "var(--font-outfit), sans-serif",
+            fontWeight: 600,
+            fontSize: "0.75rem",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            color: "#bbf7d0",
+            marginBottom: "1.5rem"
+          }}>Start Your Project</p>
+          <h2 style={{
+            fontFamily: "var(--font-outfit), sans-serif",
+            fontWeight: 800,
+            fontSize: "3.5rem",
+            color: "#ffffff",
+            marginBottom: "1.5rem",
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em"
           }}>
-            <iframe
-                src="https://api.leadconnectorhq.com/widget/form/fadezkmGpuqGdxxebKZl"
-                style={{ width: "100%", height: "780px", border: "none", borderRadius: "8px" }}
-                id="inline-fadezkmGpuqGdxxebKZl" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Website form"
-                data-height="780"
-                data-layout-iframe-id="inline-fadezkmGpuqGdxxebKZl"
-                data-form-id="fadezkmGpuqGdxxebKZl"
-                title="Website form"
-            />
-            <script src="https://link.msgsndr.com/js/form_embed.js" async></script>
-          </div>
+            Ready to Build Your<br />Dream Backyard?
+          </h2>
+          <p style={{
+            fontFamily: "var(--font-outfit), sans-serif",
+            fontWeight: 400,
+            fontSize: "1.125rem",
+            color: "rgba(255,255,255,0.9)",
+            marginBottom: "3rem",
+            lineHeight: 1.6
+          }}>
+            Request your free consultation today. A JJ specialist will reach out within one business day with next steps.
+          </p>
+          <a
+            href="/contact"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              fontFamily: "var(--font-outfit), sans-serif",
+              fontWeight: 700,
+              fontSize: "1rem",
+              color: "#0f385c",
+              backgroundColor: "#ffffff",
+              padding: "1rem 2.5rem",
+              borderRadius: "9999px",
+              textDecoration: "none",
+              letterSpacing: "0.02em",
+              transition: "transform 0.2s, opacity 0.2s",
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-2px)"}
+            onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+          >
+            Request Free Estimate
+            <IconArrow />
+          </a>
         </div>
       </section>
 
@@ -1679,9 +1634,14 @@ export default function Hero() {
               marginBottom: "2rem"
             }}>Explore</h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-              {["Services", "Process", "About", "Request Estimate"].map((link, i) => (
+              {[
+                { name: "Services", href: "#services" },
+                { name: "Process", href: "#process" },
+                { name: "About", href: "#about" },
+                { name: "Request Estimate", href: "/contact" }
+              ].map((link, i) => (
                 <li key={i}>
-                  <a href="#" style={{
+                  <a href={link.href} style={{
                     fontFamily: "var(--font-outfit), sans-serif",
                     fontWeight: 300,
                     fontSize: "0.95rem",
@@ -1692,7 +1652,7 @@ export default function Hero() {
                   onMouseEnter={(e) => e.currentTarget.style.color = "#1cb5e0"}
                   onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.8)"}
                   >
-                    {link}
+                    {link.name}
                   </a>
                 </li>
               ))}
