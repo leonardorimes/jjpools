@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Script from "next/script";
 import { useState, useEffect } from "react";
 import { HiOutlinePencilAlt, HiOutlineDocumentText, HiOutlineClipboardList, HiOutlineSparkles, HiOutlineOfficeBuilding, HiOutlineShieldCheck } from "react-icons/hi";
 import { FiTool, FiSettings } from "react-icons/fi";
@@ -1591,6 +1592,14 @@ export default function Hero() {
           </div>
         </div>
       </footer>
+
+      <Script 
+        src="https://widgets.leadconnectorhq.com/loader.js" 
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
+        data-widget-id="6a05002af7ab4171f78737a0" 
+        data-source="WEB_USER"
+        strategy="lazyOnload"
+      />
     </>
   );
 }

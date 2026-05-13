@@ -78,9 +78,32 @@ export default function PrivacyPolicyPage() {
           <h2 style={{ fontWeight: 700, fontSize: "1.25rem", marginTop: "2.5rem", marginBottom: "1rem", color: "#0f385c" }}>
             3. SMS and Mobile Communication (A2P Compliance)
           </h2>
-          <p style={{ lineHeight: 1.7, marginBottom: "1.5rem" }}>
-            By providing your phone number, you consent to receive text messages (SMS/MMS) from JJ Pools & Spa for appointments, scheduling, and project updates.
+          <p style={{ lineHeight: 1.7, marginBottom: "1rem" }}>
+            By providing your phone number, you consent to receive text messages (SMS/MMS) from JJ Pools & Spa for appointment reminders, project updates, and marketing purposes.
           </p>
+          <ul style={{ lineHeight: 1.7, paddingLeft: "1.5rem", marginBottom: "1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <li><strong>Opt-In:</strong> You may opt-in via our website forms by checking the appropriate consent box.</li>
+            <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text "STOP" to our number. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed.</li>
+          </ul>
+
+          <h2 style={{ fontWeight: 700, fontSize: "1.25rem", marginTop: "2.5rem", marginBottom: "1rem", color: "#0f385c" }}>
+            4. NO SHARING OF PERSONAL INFORMATION (Mandatory Clause)
+          </h2>
+          <p style={{ lineHeight: 1.7, marginBottom: "1.5rem" }}>
+            Mobile information will not be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+          </p>
+
+          <h2 style={{ fontWeight: 700, fontSize: "1.25rem", marginTop: "2.5rem", marginBottom: "1rem", color: "#0f385c" }}>
+            5. Contact Us
+          </h2>
+          <p style={{ lineHeight: 1.7, marginBottom: "1.5rem" }}>
+            If you have any questions about this Privacy Policy, please contact us at:
+          </p>
+          <ul style={{ lineHeight: 1.7, paddingLeft: "1.5rem", marginBottom: "1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <li><strong>Address:</strong> Winter Garden, Florida</li>
+            <li><strong>Phone:</strong> (689) 600-3122</li>
+            <li><strong>Email:</strong> contact@jjpoolsandspa.com</li>
+          </ul>
         </div>
 
       </section>
