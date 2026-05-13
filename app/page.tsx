@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { HiOutlinePencilAlt, HiOutlineDocumentText, HiOutlineClipboardList, HiOutlineSparkles } from "react-icons/hi";
+import { HiOutlinePencilAlt, HiOutlineDocumentText, HiOutlineClipboardList, HiOutlineSparkles, HiOutlineOfficeBuilding, HiOutlineShieldCheck } from "react-icons/hi";
 import { FiTool, FiSettings } from "react-icons/fi";
+import { TbHeartHandshake, TbDiamond, TbMessageCircle, TbWallet, TbCompass, TbSparkles, TbUserCheck, TbSun, TbTopologyStar, TbAffiliate } from "react-icons/tb";
 
 
 /* ─────────────────────────────────────────────────────────────
@@ -98,41 +99,39 @@ function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: isScrolled ? "1rem 2.5rem" : "1.5rem 2.5rem",
-        background: isScrolled ? "rgba(255,255,255,0.95)" : "linear-gradient(to bottom, rgba(2,10,24,0.75) 0%, transparent 100%)",
-        backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
-        borderBottom: isScrolled ? "1px solid rgba(0,0,0,0.05)" : "1px solid transparent",
+        padding: isScrolled ? "1.25rem 3rem" : "1.75rem 3rem",
+        background: isScrolled ? "#ffffff" : "transparent",
         boxShadow: isScrolled ? "0 4px 20px rgba(0,0,0,0.05)" : "none",
         transition: "all 0.3s ease-in-out",
       }}
     >
       <style>{`
-        .nav-link { color: ${isScrolled ? "#475569" : "rgba(255,255,255,0.8)"}; transition: color 0.2s; }
-        .nav-link:hover { color: #14b8a6; }
+        .nav-link { color: ${isScrolled ? "#0f172a" : "#ffffff"}; transition: color 0.2s; }
+        .nav-link:hover { color: #1cb5e0; }
       `}</style>
       
       {/* Logo */}
-      <a href="/" id="nav-logo" aria-label="JJ Pools and SPA — Home" style={{ textDecoration: "none" }}>
+      <a href="/" id="nav-logo" aria-label="JJ Pools and SPA — Home" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
         <span style={{
           fontFamily: "var(--font-outfit), sans-serif",
           fontWeight: 800,
-          fontSize: "1.375rem",
-          letterSpacing: "-0.03em",
+          fontSize: "1.5rem",
+          letterSpacing: "-0.02em",
           color: isScrolled ? "#0f172a" : "#ffffff",
           lineHeight: 1,
           transition: "color 0.3s"
         }}>
-          JJ<span style={{ color: "#2dd4bf" }}>POOLS</span>
+          JJ POOLS
           <span style={{
-            fontWeight: 300,
-            fontSize: "0.6rem",
-            letterSpacing: "0.15em",
+            fontWeight: 400,
+            fontSize: "0.55rem",
+            letterSpacing: "0.2em",
             display: "block",
-            color: isScrolled ? "#64748b" : "rgba(255,255,255,0.55)",
+            color: isScrolled ? "#64748b" : "#ffffff",
             marginTop: "2px",
             textTransform: "uppercase",
             transition: "color 0.3s"
-          }}>and SPA</span>
+          }}>AND SPA</span>
         </span>
       </a>
 
@@ -141,7 +140,7 @@ function Navbar() {
         role="list"
         style={{
           display: "flex",
-          gap: "2.25rem",
+          gap: "2.5rem",
           listStyle: "none",
           margin: 0,
           padding: 0,
@@ -156,9 +155,9 @@ function Navbar() {
               className="nav-link"
               style={{
                 fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 500,
-                fontSize: "0.875rem",
-                letterSpacing: "0.03em",
+                fontWeight: 600,
+                fontSize: "0.85rem",
+                letterSpacing: "0.02em",
                 textDecoration: "none",
               }}
             >
@@ -174,26 +173,25 @@ function Navbar() {
         href="#contact"
         style={{
           fontFamily: "var(--font-outfit), sans-serif",
-          fontWeight: 600,
-          fontSize: "0.8125rem",
-          letterSpacing: "0.04em",
-          color: "#020a18",
-          background: "linear-gradient(135deg, #2dd4bf 0%, #14b8a6 50%, #0d9488 100%)",
-          padding: "0.625rem 1.375rem",
+          fontWeight: 700,
+          fontSize: "0.85rem",
+          letterSpacing: "0.02em",
+          color: "#ffffff",
+          background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
+          padding: "0.75rem 1.75rem",
           borderRadius: "9999px",
           textDecoration: "none",
           display: "inline-block",
-          boxShadow: "0 4px 24px rgba(20,184,166,0.35)",
-          transition: "transform 0.2s, box-shadow 0.2s",
+          transition: "transform 0.2s, opacity 0.2s",
           whiteSpace: "nowrap",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-1px)";
-          e.currentTarget.style.boxShadow = "0 8px 32px rgba(20,184,166,0.5)";
+          e.currentTarget.style.opacity = "0.9";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.boxShadow = "0 4px 24px rgba(20,184,166,0.35)";
+          e.currentTarget.style.opacity = "1";
         }}
       >
         Request Free Estimate
@@ -703,6 +701,18 @@ export default function Hero() {
           position: "relative"
         }}
       >
+        {/* Blur Transition overlay at the top */}
+        <div style={{
+          position: "absolute",
+          top: "-120px",
+          left: 0,
+          right: 0,
+          height: "120px",
+          background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          pointerEvents: "none",
+        }} />
         <div style={{
           maxWidth: "1280px",
           margin: "0 auto",
@@ -722,13 +732,17 @@ export default function Hero() {
             fontFamily: "var(--font-outfit), sans-serif",
             fontWeight: 800,
             fontSize: "3.5rem",
-            color: "#0f172a",
             marginBottom: "1.25rem",
             letterSpacing: "-0.02em",
-            lineHeight: 1.1
+            lineHeight: 1.1,
+            background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            color: "transparent",
           }}>
             Three signature builds.<br />
-            <span style={{ color: "#38bdf8" }}>One uncompromising<br />standard.</span>
+            One uncompromising standard.
           </h2>
           
           <p className="animate-fade-up delay-100" style={{
@@ -753,19 +767,19 @@ export default function Hero() {
                 title: "Fiberglass Pools",
                 desc: "Engineered for longevity and effortless ownership. A smooth gel-coat finish, faster installation, and lower lifetime maintenance — without compromising on sophistication.",
                 bullets: ["Premium gel-coat finish", "Rapid installation", "Low maintenance"],
-                img: "/about-bg.png"
+                img: "/service-fiberglass.png"
               },
               {
                 title: "Ceramic Pools",
                 desc: "A statement of timeless luxury. Hand-finished ceramic surfaces deliver depth of color, refined texture, and a custom feel tailored to your home's architecture.",
                 bullets: ["Hand-finished detail", "Architectural integration", "Iconic durability"],
-                img: "/hero-bg.png"
+                img: "/service-ceramic.png"
               },
               {
                 title: "Luxury Spas",
                 desc: "Resort-grade spas designed as the centerpiece of an elevated outdoor lifestyle. Quiet performance, ambient lighting, and an experience built for daily indulgence.",
                 bullets: ["Resort-grade engineering", "Ambient lighting", "Custom integration"],
-                img: "/lifestyle-bg.png"
+                img: "/service-spa.png"
               }
             ].map((card, i) => (
               <div key={i} style={{
@@ -869,10 +883,14 @@ export default function Hero() {
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 800,
               fontSize: "3.5rem",
-              color: "#020a18",
               marginBottom: "1.5rem",
               letterSpacing: "-0.03em",
-              lineHeight: 1.1
+              lineHeight: 1.1,
+              background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              color: "transparent",
             }}>
               We Handle Everything<br/>From Start to Finish.
             </h2>
@@ -896,6 +914,14 @@ export default function Hero() {
             gap: "1rem",
             paddingTop: "1rem"
           }}>
+            {/* SVG definition for icon gradient */}
+            <svg width="0" height="0" style={{ position: "absolute" }}>
+              <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop stopColor="#0f385c" offset="0%" />
+                <stop stopColor="#1cb5e0" offset="100%" />
+              </linearGradient>
+            </svg>
+
             {/* Horizontal Line strictly aligned with centers */}
             <div className="hidden-mobile" style={{
               position: "absolute",
@@ -908,12 +934,12 @@ export default function Hero() {
             }} />
             
             {[
-              { num: "01", title: "Design", text: "3D concepts crafted around your home, lifestyle, and lot.", icon: <HiOutlinePencilAlt size={32} /> },
-              { num: "02", title: "Permits", text: "We handle every Florida permit and HOA requirement.", icon: <HiOutlineDocumentText size={32} /> },
-              { num: "03", title: "Engineering", text: "Precision plans engineered for durability and beauty.", icon: <HiOutlineClipboardList size={32} /> },
-              { num: "04", title: "Installation", text: "Skilled crews, transparent timelines, zero surprises.", icon: <FiTool size={32} /> },
-              { num: "05", title: "Finishing", text: "Decking, lighting, landscaping — the resort experience.", icon: <HiOutlineSparkles size={32} /> },
-              { num: "06", title: "Project Mgmt", text: "One dedicated point of contact. Start to dive in.", icon: <FiSettings size={32} /> },
+              { num: "01", title: "Design", text: "3D concepts crafted around your home, lifestyle, and lot.", icon: <HiOutlinePencilAlt size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
+              { num: "02", title: "Permits", text: "We handle every Florida permit and HOA requirement.", icon: <HiOutlineDocumentText size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
+              { num: "03", title: "Engineering", text: "Precision plans engineered for durability and beauty.", icon: <HiOutlineClipboardList size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
+              { num: "04", title: "Installation", text: "Skilled crews, transparent timelines, zero surprises.", icon: <FiTool size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
+              { num: "05", title: "Finishing", text: "Decking, lighting, landscaping — the resort experience.", icon: <HiOutlineSparkles size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
+              { num: "06", title: "Project Mgmt", text: "One dedicated point of contact. Start to dive in.", icon: <FiSettings size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
             ].map((step) => (
               <div key={step.num} style={{
                 position: "relative",
@@ -936,14 +962,13 @@ export default function Hero() {
                   boxShadow: "0 10px 25px -5px rgba(0,0,0,0.08)",
                   marginBottom: "1.5rem",
                   position: "relative",
-                  color: "#1e40af"
                 }}>
                   {/* Badge */}
                   <div style={{
                     position: "absolute",
                     top: "-8px",
                     right: "-8px",
-                    backgroundColor: "#1e40af",
+                    background: "linear-gradient(135deg, #0f385c 0%, #1cb5e0 100%)",
                     color: "#ffffff",
                     width: "28px",
                     height: "28px",
@@ -1048,12 +1073,16 @@ export default function Hero() {
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 800,
               fontSize: "3rem",
-              color: "#020a18",
               marginBottom: "1.5rem",
               letterSpacing: "-0.02em",
-              lineHeight: 1.1
+              lineHeight: 1.1,
+              background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              color: "transparent",
             }}>
-              A modern Florida brand built on trust <span style={{ color: "#14b8a6" }}>and craft.</span>
+              A modern Florida brand built on trust and craft.
             </h2>
             <p style={{
               fontFamily: "var(--font-outfit), sans-serif",
@@ -1068,22 +1097,22 @@ export default function Hero() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
               {[
-                { title: "Backed by experience", desc: "Powered by a larger group specialized in home construction and vacation home management." },
-                { title: "Quality without compromise", desc: "Premium materials, certified crews, and a build standard you can verify." },
-                { title: "Transparent communication", desc: "Real updates, real timelines, and a project manager who actually answers." }
+                { title: "Backed by experience", desc: "Powered by a larger group specialized in home construction and vacation home management.", icon: <HiOutlineOfficeBuilding size={24} /> },
+                { title: "Quality without compromise", desc: "Premium materials, certified crews, and a build standard you can verify.", icon: <HiOutlineShieldCheck size={24} /> },
+                { title: "Transparent communication", desc: "Real updates, real timelines, and a project manager who actually answers.", icon: <TbHeartHandshake size={24} /> }
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: "1.25rem" }}>
                   <div style={{
                     minWidth: "48px",
                     height: "48px",
-                    backgroundColor: "#f0fdfa",
-                    borderRadius: "12px",
+                    backgroundColor: "#f0f8fb",
+                    borderRadius: "14px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#0d9488"
+                    color: "#0f385c"
                   }}>
-                    <IconShield />
+                    {item.icon}
                   </div>
                   <div>
                     <h4 style={{
@@ -1142,14 +1171,14 @@ export default function Hero() {
             gap: "1.5rem"
           }}>
             {[
-              { title: "Turnkey Process", desc: "One contract. One team. Zero coordination on you." },
-              { title: "Premium Finishes", desc: "Materials and details selected for lasting beauty." },
-              { title: "Fast Communication", desc: "Direct access to your project manager — always." },
-              { title: "Financing Options", desc: "Flexible plans that fit your timeline and budget." },
-              { title: "High-End Design", desc: "Architecturally considered, lifestyle-driven concepts." },
-              { title: "Stress-Free Build", desc: "We absorb the complexity. You enjoy the result." },
-              { title: "Personalized Projects", desc: "Tailored to your home, family, and lifestyle." },
-              { title: "Florida Expertise", desc: "Built for our climate, codes, and outdoor living." },
+              { title: "Turnkey Process", desc: "One contract. One team. Zero coordination on you.", icon: <TbAffiliate size={20} /> },
+              { title: "Premium Finishes", desc: "Materials and details selected for lasting beauty.", icon: <TbDiamond size={20} /> },
+              { title: "Fast Communication", desc: "Direct access to your project manager — always.", icon: <TbMessageCircle size={20} /> },
+              { title: "Financing Options", desc: "Flexible plans that fit your timeline and budget.", icon: <TbWallet size={20} /> },
+              { title: "High-End Design", desc: "Architecturally considered, lifestyle-driven concepts.", icon: <TbCompass size={20} /> },
+              { title: "Stress-Free Build", desc: "We absorb the complexity. You enjoy the result.", icon: <TbSparkles size={20} /> },
+              { title: "Personalized Projects", desc: "Tailored to your home, family, and lifestyle.", icon: <TbUserCheck size={20} /> },
+              { title: "Florida Expertise", desc: "Built for our climate, codes, and outdoor living.", icon: <TbSun size={20} /> },
             ].map((reason, i) => (
               <div key={i} style={{
                 background: "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
@@ -1174,15 +1203,15 @@ export default function Hero() {
                   width: "44px",
                   height: "44px",
                   borderRadius: "50%",
-                  background: "radial-gradient(circle at top left, #38bdf8 0%, #1e3a8a 100%)",
-                  boxShadow: "0 4px 12px rgba(56, 189, 248, 0.3)",
+                  background: "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, #1cb5e0 100%)",
+                  boxShadow: "none",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#ffffff",
                   marginBottom: "1.5rem"
                 }}>
-                  <IconShield />
+                  {reason.icon}
                 </div>
                 <h4 style={{
                   fontFamily: "var(--font-outfit), sans-serif",
@@ -1528,13 +1557,13 @@ export default function Hero() {
             borderRadius: "20px",
             boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
             overflow: "hidden",
-            height: "648px",
+            minHeight: "780px",
             width: "100%",
             position: "relative"
           }}>
             <iframe
                 src="https://api.leadconnectorhq.com/widget/form/fadezkmGpuqGdxxebKZl"
-                style={{ width: "100%", height: "100%", border: "none", borderRadius: "8px" }}
+                style={{ width: "100%", height: "780px", border: "none", borderRadius: "8px" }}
                 id="inline-fadezkmGpuqGdxxebKZl" 
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -1544,7 +1573,7 @@ export default function Hero() {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Website form"
-                data-height="648"
+                data-height="780"
                 data-layout-iframe-id="inline-fadezkmGpuqGdxxebKZl"
                 data-form-id="fadezkmGpuqGdxxebKZl"
                 title="Website form"
