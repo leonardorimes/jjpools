@@ -167,7 +167,7 @@ function Navbar() {
         <a
           id="nav-cta"
           href="/contact"
-          className="hidden md:inline-block"
+          className="hidden md:inline-flex items-center"
         style={{
           fontFamily: "var(--font-outfit), sans-serif",
           fontWeight: 700,
@@ -178,7 +178,6 @@ function Navbar() {
           padding: "0.75rem 1.75rem",
           borderRadius: "9999px",
           textDecoration: "none",
-          display: "inline-block",
           transition: "transform 0.2s, opacity 0.2s",
           whiteSpace: "nowrap",
         }}
@@ -196,7 +195,7 @@ function Navbar() {
 
         {/* Mobile Hamburger Toggle */}
         <button
-          className="md:hidden"
+          className="md:hidden flex items-center justify-center p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
           style={{
@@ -204,10 +203,6 @@ function Navbar() {
             border: "none",
             color: isScrolled ? "#0f172a" : "#ffffff",
             cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "0.5rem"
           }}
         >
           {isMobileMenuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
@@ -817,8 +812,7 @@ export default function Hero() {
       </section>
 
       {/* ── Process Section ── */}
-      <section id="process" style={{
-        padding: "8rem 4rem",
+      <section id="process" className="px-6 md:px-16 py-20 md:py-32" style={{
         backgroundColor: "#f4f9f9",
         position: "relative",
         zIndex: 10,
@@ -962,15 +956,12 @@ export default function Hero() {
       </section>
 
       {/* ── About Section ── */}
-      <section id="about" style={{
-        padding: "8rem 4rem",
+      <section id="about" className="px-6 md:px-16 py-20 md:py-32" style={{
         backgroundColor: "#ffffff",
       }}>
-        <div style={{
+        <div className="flex flex-col md:grid md:grid-cols-2" style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
           gap: "6rem",
           alignItems: "center"
         }}>
@@ -1121,9 +1112,7 @@ export default function Hero() {
             Eight reasons your backyard deserves <span style={{ color: "#2dd4bf", fontStyle: "italic", fontFamily: "var(--font-cormorant), serif" }}>JJ.</span>
           </h2>
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{
             gap: "1.5rem"
           }}>
             {[
@@ -1285,21 +1274,17 @@ export default function Hero() {
       </section>
 
       {/* ── Financing Section ── */}
-      <section style={{
-        padding: "8rem 4rem",
+      <section className="px-6 md:px-16 py-20 md:py-32" style={{
         backgroundColor: "#f4f9fc",
         display: "flex",
         justifyContent: "center",
       }}>
-        <div style={{
+        <div className="flex flex-col md:grid md:grid-cols-2 p-8 md:p-20" style={{
           backgroundColor: "#ffffff",
           borderRadius: "24px",
-          padding: "5rem",
           maxWidth: "1150px",
           width: "100%",
           boxShadow: "0 25px 50px -12px rgba(0,0,0,0.06), 0 0 40px 10px rgba(45,212,191,0.04)",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
           gap: "4rem",
           alignItems: "center",
         }}>
@@ -1495,15 +1480,13 @@ export default function Hero() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{
+      <footer className="px-6 md:px-16 pt-20 pb-8" style={{
         backgroundColor: "#021c38",
-        padding: "5rem 4rem 2rem",
         color: "#ffffff"
       }}>
-        <div style={{
+        <div className="flex flex-col md:grid" style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          display: "grid",
           gridTemplateColumns: "2fr 1fr 1fr",
           gap: "4rem",
           paddingBottom: "4rem",
