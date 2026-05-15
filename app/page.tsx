@@ -89,132 +89,138 @@ function Navbar() {
   }, []);
 
   return (
-      <nav
-        id="main-nav"
-        aria-label="Main navigation"
-        className={`px-6 md:px-12 py-5 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
+    <nav
+      id="main-nav"
+      aria-label="Main navigation"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+    >
+      {/* Inner container — centred, capped width, symmetric gutters */}
+      <div
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: isScrolled ? "1.1rem 2.5rem" : "1.5rem 2.5rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          transition: "all 0.3s ease-in-out",
         }}
       >
-      <style>{`
-        .nav-link { color: ${isScrolled ? "#0f172a" : "#ffffff"}; transition: color 0.2s; }
-        .nav-link:hover { color: #1cb5e0; }
-      `}</style>
-      
-      {/* Logo */}
-      <a href="/" id="nav-logo" aria-label="JJ Pools and SPA — Home" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
-        <div style={{
-          position: "relative",
-          width: "160px",
-          height: "48px",
-          transition: "filter 0.3s ease",
-          filter: isScrolled ? "none" : "brightness(0) invert(1)"
-        }}>
-          <Image
-            src="/logo.png"
-            alt="JJ Pools and SPA Logo"
-            fill
-            sizes="160px"
-            style={{ objectFit: "contain", objectPosition: "left center" }}
-            priority
-          />
-        </div>
-      </a>
+        <style>{`
+          .nav-link {
+            color: ${isScrolled ? "#0f172a" : "#ffffff"};
+            transition: color 0.2s;
+            font-family: var(--font-outfit), sans-serif;
+            font-weight: 500;
+            font-size: 0.875rem;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+          }
+          .nav-link:hover { color: #1cb5e0; }
+        `}</style>
 
-      {/* Nav links — desktop only */}
-      <ul
-        role="list"
-        className="hidden md:flex"
-        style={{
-          gap: "2.5rem",
-          listStyle: "none",
-          margin: 0,
-          padding: 0,
-        }}
-      >
-        {links.map((link) => (
-          <li key={link}>
-            <a
-              id={`nav-link-${link.toLowerCase()}`}
-              href={link === "Contact" ? "/contact" : `#${link.toLowerCase()}`}
-              className="nav-link"
-              style={{
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 600,
-                fontSize: "0.85rem",
-                letterSpacing: "0.02em",
-                textDecoration: "none",
-              }}
-            >
-              {link}
-            </a>
-          </li>
-        ))}
-      </ul>
+        {/* ── Logo ── */}
+        <a href="/" id="nav-logo" aria-label="JJ Pools and SPA — Home" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
+          <div style={{ position: "relative", width: "140px", height: "44px" }}>
+            <Image
+              src={isScrolled ? "/logo_black.png" : "/logo.png"}
+              alt="JJ Pools and SPA Logo"
+              fill
+              sizes="140px"
+              style={{ objectFit: "contain", objectPosition: "left center" }}
+              priority
+            />
+          </div>
+        </a>
 
-      {/* Desktop CTA & Mobile Toggle wrapper */}
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        {/* Desktop CTA */}
-        <a
-          id="nav-cta"
-          href="/contact"
-          className="hidden md:inline-flex items-center"
-        style={{
-          fontFamily: "var(--font-outfit), sans-serif",
-          fontWeight: 700,
-          fontSize: "0.85rem",
-          letterSpacing: "0.02em",
-          color: "#ffffff",
-          background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
-          padding: "0.75rem 1.75rem",
-          borderRadius: "9999px",
-          textDecoration: "none",
-          transition: "transform 0.2s, opacity 0.2s",
-          whiteSpace: "nowrap",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-1px)";
-          e.currentTarget.style.opacity = "0.9";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.opacity = "1";
-        }}
-      >
-        Request Free Estimate
-      </a>
-
-        {/* Mobile Hamburger Toggle */}
-        <button
-          className="md:hidden flex items-center justify-center p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle mobile menu"
+        {/* ── Desktop nav links ── */}
+        <ul
+          role="list"
+          className="hidden md:flex"
           style={{
-            background: "transparent",
-            border: "none",
-            color: isScrolled ? "#0f172a" : "#ffffff",
-            cursor: "pointer",
+            alignItems: "center",
+            gap: "2.5rem",
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
           }}
         >
-          {isMobileMenuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
-        </button>
+          {links.map((link) => (
+            <li key={link}>
+              <a
+                id={`nav-link-${link.toLowerCase()}`}
+                href={link === "Contact" ? "/contact" : `#${link.toLowerCase()}`}
+                className="nav-link"
+              >
+                {link}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* ── Right side: CTA + mobile toggle ── */}
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexShrink: 0 }}>
+          {/* Desktop CTA */}
+          <a
+            id="nav-cta"
+            href="/contact"
+            className="hidden md:inline-flex"
+            style={{
+              fontFamily: "var(--font-outfit), sans-serif",
+              fontWeight: 700,
+              fontSize: "0.875rem",
+              letterSpacing: "0.02em",
+              color: "#ffffff",
+              background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
+              padding: "0.875rem 2rem",
+              borderRadius: "9999px",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+              transition: "transform 0.2s, opacity 0.2s",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.opacity = "0.9"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.opacity = "1"; }}
+          >
+            Request Free Estimate
+          </a>
+
+          {/* Mobile hamburger — hidden on md+ via CSS class */}
+          <button
+            className="md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+            style={{
+              padding: "0.5rem",
+              borderRadius: "8px",
+              background: isScrolled ? "rgba(0,0,0,0.06)" : "rgba(255,255,255,0.12)",
+              border: "none",
+              color: isScrolled ? "#0f172a" : "#ffffff",
+              cursor: "pointer",
+            }}
+          >
+            {isMobileMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* ── Mobile dropdown ── */}
       {isMobileMenuOpen && (
-        <div
-          className="md:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-slate-100 py-4 px-6 flex flex-col gap-4"
-          style={{ animation: "fadeIn 0.2s ease-out" }}
-        >
+        <div style={{
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          right: 0,
+          background: "#ffffff",
+          boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
+          borderTop: "1px solid #f1f5f9",
+          padding: "1.5rem 2rem 2rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
+        }}>
           {links.map((link) => (
             <a
               key={link}
@@ -223,11 +229,12 @@ function Navbar() {
               style={{
                 fontFamily: "var(--font-outfit), sans-serif",
                 fontWeight: 600,
-                fontSize: "1.1rem",
+                fontSize: "1.05rem",
                 color: "#0f172a",
                 textDecoration: "none",
-                padding: "0.5rem 0",
-                borderBottom: "1px solid #f1f5f9"
+                padding: "0.875rem 0",
+                borderBottom: "1px solid #f1f5f9",
+                display: "block",
               }}
             >
               {link}
@@ -242,11 +249,12 @@ function Navbar() {
               fontSize: "1rem",
               color: "#ffffff",
               background: "linear-gradient(90deg, #0f385c 0%, #1cb5e0 100%)",
-              padding: "0.875rem",
-              borderRadius: "8px",
+              padding: "1rem",
+              borderRadius: "12px",
               textDecoration: "none",
               textAlign: "center",
-              marginTop: "0.5rem"
+              display: "block",
+              marginTop: "1rem",
             }}
           >
             Request Free Estimate
@@ -294,27 +302,15 @@ function TrustBadge({ icon, text, subtext, delay, id }: BadgeProps) {
         (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.12)";
       }}
     >
-      <span style={{ color: "#2dd4bf" }}>{icon}</span>
-      <div>
-        <p style={{
-          fontFamily: "var(--font-outfit), sans-serif",
-          fontWeight: 500,
-          fontSize: "0.8rem",
-          color: "rgba(255,255,255,0.92)",
-          lineHeight: 1.2,
-          whiteSpace: "nowrap",
-        }}>{text}</p>
-        {subtext && (
-          <p style={{
-            fontFamily: "var(--font-outfit), sans-serif",
-            fontWeight: 400,
-            fontSize: "0.7rem",
-            color: "rgba(255,255,255,0.5)",
-            lineHeight: 1.2,
-            whiteSpace: "nowrap",
-          }}>{subtext}</p>
-        )}
-      </div>
+      <span style={{ color: "#2dd4bf", display: "flex", flexShrink: 0 }}>{icon}</span>
+      <p style={{
+        fontFamily: "var(--font-outfit), sans-serif",
+        fontWeight: 500,
+        fontSize: "0.82rem",
+        color: "rgba(255,255,255,0.92)",
+        lineHeight: 1.3,
+        whiteSpace: "nowrap",
+      }}>{text}</p>
     </div>
   );
 }
@@ -327,18 +323,41 @@ export default function Hero() {
     <>
       {/* Responsive helpers */}
       <style>{`
-        .hidden-mobile { display: flex; }
+        /* ── Hero responsive ── */
+        .hero-content {
+          padding-left: 5rem;
+          padding-right: 5rem;
+          padding-top: 9rem;
+          padding-bottom: 4rem;
+        }
+        .hero-ctas {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 2rem;
+          flex-wrap: nowrap;
+          margin-bottom: 0;
+        }
+        @media (max-width: 1024px) {
+          .hero-content { padding-left: 3rem; padding-right: 3rem; }
+        }
         @media (max-width: 768px) {
-          .hidden-mobile { display: none; }
-          .hero-headline { font-size: 2.75rem !important; }
-          .hero-subhead { font-size: 1rem !important; }
-          .hero-badges { flex-wrap: wrap; gap: 0.625rem !important; }
-          .hero-ctas { flex-direction: column; align-items: flex-start; }
-          .hero-content { padding: 0 1.25rem !important; padding-top: 7rem !important; }
+          .hero-headline { font-size: 2.6rem !important; line-height: 1.1 !important; }
+          .hero-subhead  { font-size: 1rem !important; }
+          .hero-badges   { flex-wrap: wrap !important; gap: 0.75rem !important; }
+          .hero-ctas {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            flex-wrap: wrap !important;
+            gap: 1.25rem !important;
+            width: 100%;
+          }
+          .hero-content  { padding: 8rem 1.5rem 3rem !important; }
           .hero-scroll-hint { display: none !important; }
         }
         @media (max-width: 480px) {
-          .hero-headline { font-size: 2.1rem !important; }
+          .hero-headline { font-size: 2rem !important; }
+          .hero-content  { padding-top: 7rem !important; }
         }
       `}</style>
 
@@ -419,22 +438,20 @@ export default function Hero() {
           position: "relative",
           zIndex: 10,
           width: "100%",
-          maxWidth: "1440px",
+          maxWidth: "1280px",
           margin: "0 auto",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           flex: 1,
-          paddingTop: "7rem", // To account for the navbar
-          paddingBottom: "4rem",
         }}>
           {/* ── Hero Content ── */}
           <div
-            className="hero-content px-6 md:px-16"
+            className="hero-content"
             style={{
               display: "flex",
               flexDirection: "column",
-              maxWidth: "860px",
+              maxWidth: "820px",
             }}
           >
           {/* Location badge */}
@@ -448,8 +465,8 @@ export default function Hero() {
               background: "rgba(45,212,191,0.1)",
               border: "1px solid rgba(45,212,191,0.3)",
               borderRadius: "9999px",
-              padding: "0.35rem 0.85rem",
-              marginBottom: "1.75rem",
+              padding: "0.5rem 1rem",
+              marginBottom: "2.5rem",
               width: "fit-content",
             }}
           >
@@ -478,7 +495,7 @@ export default function Hero() {
               lineHeight: 1.06,
               letterSpacing: "-0.03em",
               color: "#ffffff",
-              marginBottom: "1.25rem",
+              marginBottom: "2rem",
             }}
           >
             Transform Your<br />
@@ -507,7 +524,7 @@ export default function Hero() {
               height: "3px",
               background: "linear-gradient(90deg, #2dd4bf, #22d3ee)",
               borderRadius: "9999px",
-              marginBottom: "1.5rem",
+              marginBottom: "2.5rem",
             }}
           />
 
@@ -521,8 +538,8 @@ export default function Hero() {
               fontSize: "1.125rem",
               lineHeight: 1.7,
               color: "rgba(224, 242, 254, 0.78)",
-              maxWidth: "520px",
-              marginBottom: "2.5rem",
+              maxWidth: "540px",
+              marginBottom: "3.5rem",
             }}
           >
             Premium fiberglass pools, ceramic pools and luxury spas with
@@ -536,7 +553,6 @@ export default function Hero() {
           <div
             id="hero-ctas"
             className="hero-ctas animate-fade-up delay-500"
-            style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}
           >
             {/* Primary CTA */}
             <a
@@ -546,17 +562,19 @@ export default function Hero() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "0.5rem",
+                justifyContent: "center",
+                gap: "0.625rem",
                 fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 600,
-                fontSize: "0.9375rem",
+                fontWeight: 700,
+                fontSize: "1rem",
                 color: "#020a18",
                 background: "linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%)",
-                padding: "0.875rem 2rem",
+                padding: "1.1rem 2.75rem",
                 borderRadius: "9999px",
                 textDecoration: "none",
                 letterSpacing: "0.01em",
                 transition: "transform 0.2s, box-shadow 0.2s",
+                whiteSpace: "nowrap",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
@@ -576,28 +594,32 @@ export default function Hero() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "0.5rem",
+                justifyContent: "center",
+                gap: "0.625rem",
                 fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 500,
-                fontSize: "0.9375rem",
-                color: "rgba(255,255,255,0.90)",
-                background: "rgba(255,255,255,0.07)",
-                border: "1px solid rgba(255,255,255,0.18)",
-                backdropFilter: "blur(8px)",
-                padding: "0.875rem 1.75rem",
+                fontWeight: 600,
+                fontSize: "1rem",
+                color: "#ffffff",
+                background: "rgba(255,255,255,0.15)",
+                border: "1.5px solid rgba(255,255,255,0.55)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                padding: "1.1rem 2.75rem",
                 borderRadius: "9999px",
                 textDecoration: "none",
                 letterSpacing: "0.01em",
+                whiteSpace: "nowrap",
+                textShadow: "0 1px 8px rgba(0,0,0,0.5)",
                 transition: "background 0.2s, border-color 0.2s, transform 0.2s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.13)";
-                e.currentTarget.style.borderColor = "rgba(45,212,191,0.4)";
+                e.currentTarget.style.background = "rgba(255,255,255,0.25)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.8)";
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.07)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
+                e.currentTarget.style.background = "rgba(255,255,255,0.15)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.55)";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
@@ -606,15 +628,21 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Trust Badges */}
+          {/* Trust Badges — single row */}
           <div
             id="hero-trust-badges"
-            className="hero-badges animate-fade-up delay-700 flex flex-wrap gap-3 mt-12"
+            className="hero-badges animate-fade-up delay-700"
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              gap: "0.875rem",
+              marginTop: "3.5rem",
+            }}
           >
-            <TrustBadge id="badge-turnkey" icon={<IconHome />} text="Turnkey Projects" delay="delay-700" />
-            <TrustBadge id="badge-financing" icon={<IconDollar />} text="Financing" subtext="Available" delay="delay-800" />
-            <TrustBadge id="badge-florida" icon={<IconMapPin />} text="Florida Based" delay="delay-1000" />
-            <TrustBadge id="badge-licensed" icon={<IconShield />} text="Licensed &" subtext="Insured" delay="delay-1200" />
+            <TrustBadge id="badge-turnkey"   icon={<IconHome />}   text="Turnkey Projects"   delay="delay-700" />
+            <TrustBadge id="badge-financing" icon={<IconDollar />}  text="Financing Available" delay="delay-800" />
+            <TrustBadge id="badge-florida"   icon={<IconMapPin />}  text="Florida Based"       delay="delay-1000" />
+            <TrustBadge id="badge-licensed"  icon={<IconShield />}  text="Licensed & Insured"  delay="delay-1200" />
           </div>
         </div>
 
@@ -812,7 +840,7 @@ export default function Hero() {
       </section>
 
       {/* ── Process Section ── */}
-      <section id="process" className="px-6 md:px-16 py-20 md:py-32" style={{
+      <section id="process" className="px-6 md:px-16 pt-20 md:pt-32 pb-32 md:pb-44" style={{
         backgroundColor: "#f4f9f9",
         position: "relative",
         zIndex: 10,
