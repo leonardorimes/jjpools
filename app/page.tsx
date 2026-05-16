@@ -687,16 +687,18 @@ export default function Hero() {
       <section
         id="services"
         style={{
-          paddingTop: "6rem",
-          paddingBottom: "8rem",
+          paddingTop: "4rem",
+          paddingBottom: "2rem",
           backgroundColor: "#ffffff",
           zIndex: 20,
           position: "relative"
         }}
       >
-        <div className="px-6 md:px-16" style={{
+        <div style={{
           maxWidth: "1280px",
           margin: "0 auto",
+          paddingLeft: "1.5rem",
+          paddingRight: "1.5rem",
         }}>
           <p style={{
             fontFamily: "var(--font-outfit), sans-serif",
@@ -840,14 +842,52 @@ export default function Hero() {
       </section>
 
       {/* ── Process Section ── */}
-      <section id="process" className="px-6 md:px-16 pt-20 md:pt-32 pb-32 md:pb-44" style={{
+      <section id="process" style={{
         backgroundColor: "#f4f9f9",
         position: "relative",
         zIndex: 10,
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
+        paddingTop: "2rem",
+        paddingBottom: "4rem",
       }}>
+        <style>{`
+          .hidden-mobile { display: block; }
+          @media (max-width: 768px) {
+            .hidden-mobile { display: none !important; }
+            .process-steps-row {
+              flex-direction: column !important;
+              align-items: stretch !important;
+              gap: 2rem !important;
+            }
+            .process-step-item {
+              flex-direction: row !important;
+              text-align: left !important;
+              align-items: flex-start !important;
+              gap: 1.25rem !important;
+            }
+            .process-step-item p {
+              max-width: 100% !important;
+            }
+            .process-heading-mobile { font-size: 2.25rem !important; }
+            .about-badge-mobile {
+              bottom: -1rem !important;
+              right: 0.5rem !important;
+              padding: 1.25rem !important;
+            }
+            .about-badge-number { font-size: 1.75rem !important; }
+            .lifestyle-heading-mobile { font-size: 2.25rem !important; }
+            .lifestyle-gradient-mobile { width: 100% !important; }
+            .lifestyle-stats-mobile { flex-wrap: wrap !important; gap: 1.5rem !important; }
+            .reasons-heading-mobile { font-size: 2rem !important; }
+            .financing-heading-mobile { font-size: 2rem !important; }
+            .cta-heading-mobile { font-size: 2.25rem !important; }
+            .process-header-mobile { margin-bottom: 2.5rem !important; }
+          }
+        `}</style>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           {/* Header area - Left Aligned */}
-          <div style={{ textAlign: "left", marginBottom: "5rem" }}>
+          <div className="process-header-mobile" style={{ textAlign: "left", marginBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 600,
@@ -857,7 +897,7 @@ export default function Hero() {
               color: "#64748b",
               marginBottom: "1rem"
             }}>The Turnkey Experience</p>
-            <h2 style={{
+            <h2 className="process-heading-mobile" style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 800,
               fontSize: "3.5rem",
@@ -883,7 +923,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <div style={{
+          <div className="process-steps-row" style={{
             display: "flex",
             justifyContent: "space-between",
             position: "relative",
@@ -919,7 +959,7 @@ export default function Hero() {
               { num: "05", title: "Finishing", text: "Decking, lighting, landscaping — the resort experience.", icon: <HiOutlineSparkles size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
               { num: "06", title: "Project Mgmt", text: "One dedicated point of contact. Start to dive in.", icon: <FiSettings size={32} style={{ stroke: "url(#icon-gradient)" }} /> },
             ].map((step) => (
-              <div key={step.num} style={{
+              <div key={step.num} className="process-step-item" style={{
                 position: "relative",
                 zIndex: 1,
                 flex: "1",
@@ -983,29 +1023,46 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* ── About Section ── */}
-      <section id="about" className="px-6 md:px-16 py-20 md:py-32" style={{
+      <section id="about" style={{
         backgroundColor: "#ffffff",
+        paddingTop: "4rem",
+        paddingBottom: "4rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
       }}>
-        <div className="flex flex-col md:grid md:grid-cols-2" style={{
+        <style>{`
+          .about-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            align-items: center;
+          }
+          @media (min-width: 768px) {
+            .about-layout {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 6rem;
+            }
+          }
+        `}</style>
+        <div className="about-layout" style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          gap: "6rem",
-          alignItems: "center"
         }}>
           {/* Left: Image & Badge */}
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", width: "100%" }}>
             <div style={{
               position: "relative",
               width: "100%",
               aspectRatio: "4/5",
               borderRadius: "24px",
               overflow: "hidden",
-              boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)"
+              boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
+              minHeight: "400px",
             }}>
               <Image src="/about-bg.png" alt="Family relaxing by pool" fill style={{ objectFit: "cover" }} />
             </div>
-            <div style={{
+            <div className="about-badge-mobile" style={{
               position: "absolute",
               bottom: "-2rem",
               right: "-2rem",
@@ -1015,7 +1072,7 @@ export default function Hero() {
               boxShadow: "0 20px 40px -10px rgba(0,0,0,0.1)",
               textAlign: "center"
             }}>
-              <p style={{
+              <p className="about-badge-number" style={{
                 fontFamily: "var(--font-outfit), sans-serif",
                 fontWeight: 800,
                 fontSize: "2.5rem",
@@ -1114,8 +1171,11 @@ export default function Hero() {
 
       {/* ── Reasons Section ── */}
       <section style={{
-        padding: "8rem 4rem",
         backgroundColor: "#051b34",
+        paddingTop: "4rem",
+        paddingBottom: "4rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
       }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <p style={{
@@ -1127,7 +1187,7 @@ export default function Hero() {
             color: "#2dd4bf",
             marginBottom: "1rem"
           }}>Why Homeowners Choose Us</p>
-          <h2 style={{
+          <h2 className="reasons-heading-mobile" style={{
             fontFamily: "var(--font-outfit), sans-serif",
             fontWeight: 800,
             fontSize: "3.25rem",
@@ -1213,13 +1273,16 @@ export default function Hero() {
         minHeight: "80vh",
         display: "flex",
         alignItems: "center",
-        padding: "8rem 4rem",
-        overflow: "hidden"
+        overflow: "hidden",
+        paddingTop: "4rem",
+        paddingBottom: "4rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
       }}>
         <Image src="/lifestyle-bg.png" alt="Florida Lifestyle" fill style={{ objectFit: "cover", zIndex: 0 }} />
         
         {/* Dark blue gradient overlay on the left */}
-        <div style={{
+        <div className="lifestyle-gradient-mobile" style={{
           position: "absolute",
           top: 0,
           left: 0,
@@ -1248,8 +1311,8 @@ export default function Hero() {
               marginBottom: "1.5rem",
               letterSpacing: "-0.02em",
             }}>
-              <span style={{ fontWeight: 800, fontSize: "4rem", display: "block" }}>More than a pool.</span>
-              <span style={{ 
+              <span className="lifestyle-heading-mobile" style={{ fontWeight: 800, fontSize: "4rem", display: "block" }}>More than a pool.</span>
+              <span className="lifestyle-heading-mobile" style={{ 
                 fontFamily: "var(--font-cormorant), serif",
                 fontWeight: 400, 
                 fontSize: "4rem", 
@@ -1269,7 +1332,7 @@ export default function Hero() {
               Sunset dinners. Weekend mornings with the kids. The friends who never want to leave. A JJ backyard becomes the favorite room of the house — and quietly raises the value of everything around it.
             </p>
 
-            <div style={{ display: "flex", gap: "3rem" }}>
+            <div className="lifestyle-stats-mobile" style={{ display: "flex", gap: "3rem" }}>
               {[
                 { val: "100%", label: "TURNKEY DELIVERY" },
                 { val: "Daily", label: "MEMORIES MADE" },
@@ -1302,10 +1365,14 @@ export default function Hero() {
       </section>
 
       {/* ── Financing Section ── */}
-      <section className="px-6 md:px-16 py-20 md:py-32" style={{
-        backgroundColor: "#f4f9fc",
+      <section style={{
+        backgroundColor: "#f8fafb",
         display: "flex",
         justifyContent: "center",
+        paddingTop: "4rem",
+        paddingBottom: "4rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
       }}>
         <div className="flex flex-col md:grid md:grid-cols-2 p-8 md:p-20" style={{
           backgroundColor: "#ffffff",
@@ -1342,7 +1409,7 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h2 style={{
+            <h2 className="financing-heading-mobile" style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 800,
               fontSize: "3.25rem",
@@ -1445,10 +1512,13 @@ export default function Hero() {
 
       {/* ── Estimate / CTA Banner ── */}
       <section style={{
-        padding: "8rem 4rem",
         background: "linear-gradient(90deg, #0f385c 0%, #15b0a7 100%)",
         color: "#ffffff",
-        textAlign: "center"
+        textAlign: "center",
+        paddingTop: "4rem",
+        paddingBottom: "4rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
       }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <p style={{
@@ -1460,7 +1530,7 @@ export default function Hero() {
             color: "#bbf7d0",
             marginBottom: "1.5rem"
           }}>Start Your Project</p>
-          <h2 style={{
+          <h2 className="cta-heading-mobile" style={{
             fontFamily: "var(--font-outfit), sans-serif",
             fontWeight: 800,
             fontSize: "3.5rem",
@@ -1508,9 +1578,13 @@ export default function Hero() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="px-6 md:px-16 pt-20 pb-8" style={{
+      <footer style={{
         backgroundColor: "#021c38",
-        color: "#ffffff"
+        color: "#ffffff",
+        paddingTop: "4rem",
+        paddingBottom: "2rem",
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
       }}>
         <div className="flex flex-col md:grid" style={{
           maxWidth: "1280px",
