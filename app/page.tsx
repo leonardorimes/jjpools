@@ -1369,15 +1369,29 @@ export default function Hero() {
         backgroundColor: "#f8fafb",
         display: "flex",
         justifyContent: "center",
-        paddingTop: "4rem",
-        paddingBottom: "4rem",
+        paddingTop: "5rem",
+        paddingBottom: "5rem",
         paddingLeft: "1.5rem",
         paddingRight: "1.5rem",
       }}>
-        <div className="flex flex-col md:grid md:grid-cols-2 p-8 md:p-20" style={{
+        <style>{`
+          .financing-card {
+            display: flex;
+            flex-direction: column;
+            padding: 4rem 2.5rem;
+          }
+          @media (min-width: 768px) {
+            .financing-card {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              padding: 7rem 6rem;
+            }
+          }
+        `}</style>
+        <div className="financing-card" style={{
           backgroundColor: "#ffffff",
           borderRadius: "24px",
-          maxWidth: "1150px",
+          maxWidth: "1280px",
           width: "100%",
           boxShadow: "0 25px 50px -12px rgba(0,0,0,0.06), 0 0 40px 10px rgba(45,212,191,0.04)",
           gap: "4rem",
