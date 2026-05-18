@@ -1,10 +1,11 @@
 import Navbar from "../page" // We need to extract Navbar or recreate it. Wait, the Navbar is inside page.tsx as an inline component!
+import Script from "next/script"
 
 export default function ContactPage() {
   return (
     <main style={{ flex: 1, backgroundColor: "#020a18", position: "relative" }}>
       {/* Simple header just to allow navigation back */}
-      <nav className="px-6 md:px-12 py-7" style={{
+      <nav style={{
         position: "absolute",
         top: 0,
         left: 0,
@@ -13,12 +14,16 @@ export default function ContactPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        paddingTop: "clamp(24px, 5vw, 36px)",
+        paddingBottom: "clamp(16px, 3vw, 24px)",
+        paddingLeft: "clamp(20px, 6vw, 48px)",
+        paddingRight: "clamp(20px, 6vw, 48px)",
       }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
           <div style={{
             position: "relative",
-            width: "160px",
-            height: "48px",
+            width: "clamp(120px, 15vw, 160px)",
+            height: "clamp(36px, 4.5vw, 48px)",
             filter: "brightness(0) invert(1)"
           }}>
             {/* Using an img tag since next/image needs import, and this is a simple static header */}
@@ -34,43 +39,47 @@ export default function ContactPage() {
           fontWeight: 600,
           color: "#ffffff",
           textDecoration: "none",
-          fontSize: "0.9rem"
+          fontSize: "clamp(0.8rem, 2.5vw, 0.9rem)"
         }}>
           Back to Home
         </a>
       </nav>
 
       {/* ── Contact Section (Copied from Home) ── */}
-      <section className="px-6 md:px-16 pt-40 pb-32" style={{
+      <section style={{
         backgroundColor: "#020a18",
         minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
+        paddingTop: "clamp(130px, 18vw, 180px)",
+        paddingBottom: "clamp(60px, 8vw, 120px)",
+        paddingLeft: "clamp(20px, 6vw, 48px)",
+        paddingRight: "clamp(20px, 6vw, 48px)",
+        display: "block",
       }}>
         <div className="flex flex-col md:grid md:grid-cols-2"
           style={{
             maxWidth: "1280px",
             margin: "0 auto",
-            gap: "4rem",
-            alignItems: "start"
+            gap: "clamp(2rem, 8vw, 4rem)",
+            alignItems: "start",
+            width: "100%"
           }}>
           {/* Text Content */}
-          <div className="md:pr-8">
+          <div className="w-full md:pr-8">
             <p style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 600,
-              fontSize: "0.75rem",
+              fontSize: "clamp(0.7rem, 2vw, 0.75rem)",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
               color: "#38bdf8",
-              marginBottom: "1.5rem"
+              marginBottom: "clamp(1rem, 3vw, 1.5rem)"
             }}>Get Your Free Estimate</p>
             <h2 style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 800,
-              fontSize: "3.5rem",
+              fontSize: "clamp(2.25rem, 7vw, 3.5rem)",
               color: "#ffffff",
-              marginBottom: "1.5rem",
+              marginBottom: "clamp(1rem, 3vw, 1.5rem)",
               lineHeight: 1.1,
               letterSpacing: "-0.02em"
             }}>
@@ -79,37 +88,38 @@ export default function ContactPage() {
             <p style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 400,
-              fontSize: "1.125rem",
+              fontSize: "clamp(1rem, 2.5vw, 1.125rem)",
               color: "rgba(255,255,255,0.85)",
-              marginBottom: "3rem",
+              marginBottom: "clamp(1.5rem, 5vw, 3rem)",
               lineHeight: 1.6
             }}>
               Request your free consultation today. A JJ specialist will reach out within one business day with next steps.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               {[
                 "No obligation, no pressure",
                 "Personalized design guidance",
                 "Financing & timeline overview"
               ].map((text, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                   <div style={{
-                    width: "24px",
-                    height: "24px",
+                    width: "20px",
+                    height: "20px",
                     borderRadius: "50%",
                     border: "1px solid #38bdf8",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#38bdf8"
+                    color: "#38bdf8",
+                    flexShrink: 0
                   }}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
                   <span style={{
                     fontFamily: "var(--font-outfit), sans-serif",
                     fontWeight: 300,
-                    fontSize: "1rem",
+                    fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
                     color: "rgba(255,255,255,0.9)"
                   }}>{text}</span>
                 </div>
@@ -118,18 +128,19 @@ export default function ContactPage() {
           </div>
 
           {/* Form Embed */}
-          <div style={{
+          <div 
+            className="p-3 sm:p-6 md:p-10 w-full"
+            style={{
             backgroundColor: "#ffffff",
             borderRadius: "20px",
             boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
             overflow: "hidden",
-            minHeight: "780px",
-            width: "100%",
+            minHeight: "880px",
             position: "relative"
           }}>
             <iframe
                 src="https://api.leadconnectorhq.com/widget/form/fadezkmGpuqGdxxebKZl"
-                style={{ width: "100%", height: "780px", border: "none", borderRadius: "8px" }}
+                style={{ width: "100%", height: "100%", minHeight: "880px", border: "none", borderRadius: "8px" }}
                 id="inline-fadezkmGpuqGdxxebKZl" 
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -139,12 +150,12 @@ export default function ContactPage() {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Website form"
-                data-height="780"
+                data-height="880"
                 data-layout-iframe-id="inline-fadezkmGpuqGdxxebKZl"
                 data-form-id="fadezkmGpuqGdxxebKZl"
                 title="Website form"
             />
-            <script src="https://link.msgsndr.com/js/form_embed.js" async></script>
+            <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
           </div>
         </div>
       </section>
