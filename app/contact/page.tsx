@@ -195,7 +195,7 @@ export default function ContactPage() {
             </div>
 
             <a
-              href="/#financing"
+              href="#inline-fadezkmGpuqGdxxebKZl"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -213,17 +213,15 @@ export default function ContactPage() {
                 boxShadow: "0 10px 20px -5px rgba(45,212,191,0.2)",
                 transition: "transform 0.2s, box-shadow 0.2s",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 15px 25px -5px rgba(45,212,191,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 10px 20px -5px rgba(45,212,191,0.2)";
-              }}
             >
               Check Financing Options
-              <span style={{ display: "flex", width: "18px", marginLeft: "0.75rem" }}>
+              <span
+                style={{
+                  display: "flex",
+                  width: "18px",
+                  marginLeft: "0.75rem",
+                }}
+              >
                 <svg
                   width="18"
                   height="18"
@@ -239,6 +237,7 @@ export default function ContactPage() {
                 </svg>
               </span>
             </a>
+          </div>
 
           {/* Form Embed */}
           <div
