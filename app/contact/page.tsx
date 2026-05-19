@@ -1,4 +1,3 @@
-import Navbar from "../page"; // We need to extract Navbar or recreate it. Wait, the Navbar is inside page.tsx as an inline component!
 import Script from "next/script";
 
 export default function ContactPage() {
@@ -194,7 +193,52 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
-          </div>
+
+            <a
+              href="/#financing"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                maxWidth: "fit-content",
+                background: "linear-gradient(90deg, #1e3a8a 0%, #2dd4bf 100%)",
+                color: "#ffffff",
+                padding: "1rem 1.75rem",
+                borderRadius: "9999px",
+                fontFamily: "var(--font-outfit), sans-serif",
+                fontWeight: 600,
+                fontSize: "1rem",
+                textDecoration: "none",
+                marginTop: "1.5rem",
+                boxShadow: "0 10px 20px -5px rgba(45,212,191,0.2)",
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 15px 25px -5px rgba(45,212,191,0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 10px 20px -5px rgba(45,212,191,0.2)";
+              }}
+            >
+              Check Financing Options
+              <span style={{ display: "flex", width: "18px", marginLeft: "0.75rem" }}>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
 
           {/* Form Embed */}
           <div

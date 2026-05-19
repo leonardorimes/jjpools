@@ -587,45 +587,6 @@ export default function Hero() {
               <IconArrow />
             </a>
 
-            {/* Secondary CTA */}
-            <a
-              id="hero-cta-schedule"
-              href="#process"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.625rem",
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 600,
-                fontSize: "1rem",
-                color: "#ffffff",
-                background: "rgba(255,255,255,0.15)",
-                border: "1.5px solid rgba(255,255,255,0.55)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                padding: "1.1rem 2.75rem",
-                borderRadius: "9999px",
-                textDecoration: "none",
-                letterSpacing: "0.01em",
-                whiteSpace: "nowrap",
-                textShadow: "0 1px 8px rgba(0,0,0,0.5)",
-                transition: "background 0.2s, border-color 0.2s, transform 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.25)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.8)";
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.15)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.55)";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <IconCalendar />
-              Schedule Consultation
-            </a>
           </div>
 
           {/* Trust Badges — single row */}
