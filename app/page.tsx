@@ -93,7 +93,7 @@ function Navbar() {
       id="main-nav"
       aria-label="Main navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
       }`}
     >
       {/* Inner container — centred, capped width, symmetric gutters */}
@@ -821,7 +821,7 @@ export default function Hero() {
                   </ul>
 
                   <div style={{ marginTop: "auto" }}>
-                    <a href="#contact" style={{
+                    <a href="/contact" style={{
                       fontFamily: "var(--font-outfit), sans-serif",
                       fontWeight: 600,
                       fontSize: "0.9rem",
