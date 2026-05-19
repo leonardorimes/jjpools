@@ -11,38 +11,41 @@ export default function ContactPage() {
         left: 0,
         right: 0,
         zIndex: 50,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        paddingTop: "clamp(24px, 5vw, 36px)",
-        paddingBottom: "clamp(16px, 3vw, 24px)",
-        paddingLeft: "clamp(20px, 6vw, 48px)",
-        paddingRight: "clamp(20px, 6vw, 48px)",
       }}>
-        <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
-          <div style={{
-            position: "relative",
-            width: "clamp(120px, 15vw, 160px)",
-            height: "clamp(36px, 4.5vw, 48px)",
-            filter: "brightness(0) invert(1)"
-          }}>
-            {/* Using an img tag since next/image needs import, and this is a simple static header */}
-            <img
-              src="/logo.png"
-              alt="JJ Pools and SPA Logo"
-              style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "left center" }}
-            />
-          </div>
-        </a>
-        <a href="/" style={{
-          fontFamily: "var(--font-outfit), sans-serif",
-          fontWeight: 600,
-          color: "#ffffff",
-          textDecoration: "none",
-          fontSize: "clamp(0.8rem, 2.5vw, 0.9rem)"
+        <div style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "0 clamp(20px, 6vw, 48px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          minHeight: "80px"
         }}>
-          Back to Home
-        </a>
+          <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+            <div style={{
+              position: "relative",
+              width: "clamp(120px, 15vw, 160px)",
+              height: "clamp(36px, 4.5vw, 48px)",
+              filter: "brightness(0) invert(1)"
+            }}>
+              {/* Using an img tag since next/image needs import, and this is a simple static header */}
+              <img
+                src="/logo.png"
+                alt="JJ Pools and SPA Logo"
+                style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "left center" }}
+              />
+            </div>
+          </a>
+          <a href="/" style={{
+            fontFamily: "var(--font-outfit), sans-serif",
+            fontWeight: 600,
+            color: "#ffffff",
+            textDecoration: "none",
+            fontSize: "clamp(0.8rem, 2.5vw, 0.9rem)"
+          }}>
+            Back to Home
+          </a>
+        </div>
       </nav>
 
       {/* ── Contact Section (Copied from Home) ── */}
