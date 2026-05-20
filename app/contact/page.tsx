@@ -92,33 +92,16 @@ export default function ContactPage() {
         >
           {/* Text Content */}
           <div className="w-full md:pr-8">
-            <p
-              style={{
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 600,
-                fontSize: "clamp(0.7rem, 2vw, 0.75rem)",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "#38bdf8",
-                marginBottom: "clamp(1rem, 3vw, 1.5rem)",
-              }}
-            >
-              Get Your Free Estimate
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(2.25rem, 7vw, 3.5rem)",
-                color: "#ffffff",
-                marginBottom: "clamp(1rem, 3vw, 1.5rem)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Ready to Build Your
-              <br />
-              Dream Backyard?
+            <h2 style={{
+              fontFamily: "var(--font-outfit), sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(2.25rem, 7vw, 3.5rem)",
+              color: "#ffffff",
+              marginBottom: "clamp(1rem, 3vw, 1.5rem)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.02em"
+            }}>
+              Ready to Build Your<br />Dream Backyard?
             </h2>
             <p
               style={{
